@@ -1,1 +1,6 @@
-test
+
+<% @all_comics.each do |comic| %>
+<%= comic.name %>
+<%= comic.price %>
+<%= comic.description %>
+<% end %>
