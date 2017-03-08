@@ -1,3 +1,10 @@
+# make 3 fake people
+comic1 = 0
+3.times do 
+  comic1 = Product.new({name: Faker::Superhero.name, price: Faker::Commerce.price, description: "#{Faker::Name.last_name} - #{Faker::Name.last_name}"})
+  comic1.save
+end
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
