@@ -1,6 +1,6 @@
 # make 3 fake people
 comic1 = 0
-3.times do 
+27.times do 
   comic1 = Product.new({name: Faker::Superhero.name, price: Faker::Commerce.price, description: "#{Faker::Name.last_name} - #{Faker::Name.last_name}"})
   comic1.save
 end
