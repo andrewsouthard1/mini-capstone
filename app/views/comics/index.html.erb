@@ -1,0 +1,6 @@
+<h1> Home Page </h1>
+<% @all_comics.each do |comic| %>
+  <p><a href = "/comics/<%= comic.id %>"><%= comic.name %></a></p>
+  <p><%= comic.price %></p>
+  <p><%= comic.description %></p>
+<% end %>
