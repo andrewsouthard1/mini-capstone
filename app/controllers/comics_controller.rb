@@ -25,4 +25,8 @@ class ComicsController < ApplicationController
     @comic = Product.find_by(id: comic_id)
     render 'show.html.erb'
   end
+
+  def edit
+    render 'edit.html.erb'
+  end
 end
