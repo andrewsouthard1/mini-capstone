@@ -9,6 +9,12 @@ class ComicsController < ApplicationController
   end
 
   def create
+    comic1 = Product.new(
+        name: params["comic_name"],
+        price: params["comic_price"],
+        description: params["comic_description"]
+        )
+    comic1.save
     render 'create.html.erb'
   end
 
