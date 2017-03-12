@@ -1,0 +1,18 @@
+I am the new page
+
+<%= form_tag "/comics", method:"post" do%>
+  <div>
+    <label name= "comic_name">Name:</label>
+    <input type="text" name="comc_name">
+  </div>
+
+  <div>
+    <label name="comic_price">Price:</label>
+    <input type="text" name="comic_price">
+  </div>
+
+  <div>
+    <label name="comic_description">Description:</label>
+    <input type="text" name="comic_description">
+  </div>
+<% end %>
