@@ -27,6 +27,11 @@ class ComicsController < ApplicationController
   end
 
   def edit
+    @comic = Product.find_by(id: params[:id])
     render 'edit.html.erb'
+  end
+
+  def update
+    render 'update.html.erb'
   end
 end

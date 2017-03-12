@@ -1,1 +1,25 @@
-Edit page
+<h1>Edit a Comic in the Database</h1>
+
+<%= form_tag "/comics/#{@comic.id}", method: :patch do%>
+  <div>
+    <label name= "comic_name">Name:</label>
+    <input type="text" name="comic_name" value="<%=@comic.name%>">
+  </div>
+
+  <div>
+    <label name="comic_price">Price:</label>
+    <input type="text" name="comic_price" value="<%=@comic.price%>">
+  </div>
+
+  <div>
+    <label name="comic_description">Description:</label>
+    <input type="text" name="comic_description" value="<%=@comic.description%>">
+  </div>
+
+  <div>
+    <label name="submit_button">
+    <input type="submit" name="submit">
+    </label>
+  </div>
+
+<% end %>
