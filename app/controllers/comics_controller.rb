@@ -15,13 +15,13 @@ class ComicsController < ApplicationController
   end
 
   def create
-    comic1 = Product.new(
+    @comic1 = Product.new(
       name: params["comic_name"],
       price: params["comic_price"],
       description: params["comic_description"]
     )
-    comic1.save
-    render 'create.html.erb'
+    @comic1.save
+    redirect_to "/comics/#{@comic1.id}"
   end
 
   def show
@@ -45,12 +45,12 @@ class ComicsController < ApplicationController
       image: params["comic_image"],
       description: params["comic_description"]
     )
-    render 'update.html.erb'
+    redirect_to "/comics/#{@comic.id}"
   end
 
   def destroy
     @comic = Product.find(params[:id])
     @comic.destroy
-    render 'destroy.html.erb'
+    redirect_to "/comics"
   end
 end
