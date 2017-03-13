@@ -42,6 +42,7 @@ class ComicsController < ApplicationController
     @comic.update(
       name: params["comic_name"],
       price: params["comic_price"],
+      image: params["comic_image"],
       description: params["comic_description"]
     )
     render 'update.html.erb'

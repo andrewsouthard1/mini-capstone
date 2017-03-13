@@ -3,9 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #ecec01;
+  background-color: #F5F5DC;
 }
 
 h1 {
   font-family: 'Press Start 2P', cursive;
+  background-color: #ecec01;
+  border: 2px black solid;
+  padding: 10px;
+}
+
+img {
+  height: 225px;
+  width: 175px;
 }
