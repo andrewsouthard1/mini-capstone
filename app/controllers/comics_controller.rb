@@ -1,6 +1,12 @@
 class ComicsController < ApplicationController
   def index
-    @all_comics = Product.all
+    @home_page_comics = []
+    comic_db = Product.all
+    comic_num = 1
+    while comic_num < 7
+      @home_page_comics << comic_db.find_by(id: comic_num)
+      comic_num += 1
+    end
     render 'index.html.erb'
   end
 
@@ -10,10 +16,10 @@ class ComicsController < ApplicationController
 
   def create
     comic1 = Product.new(
-        name: params["comic_name"],
-        price: params["comic_price"],
-        description: params["comic_description"]
-        )
+      name: params["comic_name"],
+      price: params["comic_price"],
+      description: params["comic_description"]
+    )
     comic1.save
     render 'create.html.erb'
   end
@@ -32,6 +38,18 @@ class ComicsController < ApplicationController
   end
 
   def update
+    @comic = Product.find_by(id: params[:id])
+    @comic.update(
+      name: params["comic_name"],
+      price: params["comic_price"],
+      description: params["comic_description"]
+    )
     render 'update.html.erb'
+  end
+
+  def destroy
+    @comic = Product.find(params[:id])
+    @comic.destroy
+    render 'destroy.html.erb'
   end
 end

@@ -1,6 +1,12 @@
-<h1> Home Page </h1>
-<% @all_comics.each do |comic| %>
+<h1>Bay Ridge Comics</h1>
+
+<div>
+<% @home_page_comics.each do |comic| %>
+  <div>
   <p><a href = "/comics/<%= comic.id %>"><%= comic.name %></a></p>
+  <p> <img src="<%=comic.image %>">IMAGE</p>
   <p><%= comic.price %></p>
   <p><%= comic.description %></p>
+  </div>
 <% end %>
+</div>

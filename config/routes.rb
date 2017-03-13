@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/comics/:id' => 'comics#show'
   get '/comics/:id/edit' => 'comics#edit'
   patch '/comics/:id' => 'comics#update'
+  delete 'comics/:id' => 'comics#destroy'
 end

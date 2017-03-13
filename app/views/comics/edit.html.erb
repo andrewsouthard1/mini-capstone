@@ -21,5 +21,9 @@
     <input type="submit" name="submit">
     </label>
   </div>
-
 <% end %>
+
+<%= form_tag "/comics/#{@comic.id}", method: :delete do %>
+  <input type="submit" name="delete" value="DELETE THIS COMIC">
+<% end %>
+
