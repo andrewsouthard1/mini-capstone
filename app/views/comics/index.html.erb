@@ -2,7 +2,7 @@
 
 <div class= "container">
 <% @home_page_comics.each do |comic| %>
-  <div class = "col-md-4 col-sm-6">
+  <div class = "col-md-4 col-sm-6 subway-seat">
   <p><a href = "/comics/<%= comic.id %>"><%= comic.name %></a></p>
   <p> <img src="<%=comic.image %>"></p>
   <p><%= comic.price %></p>
