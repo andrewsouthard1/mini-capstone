@@ -21,10 +21,11 @@ h1 {
 .subway-seat {
   background-color: #ffa500;
   width: 225px;
-  margin: 10px;
-  padding: 10px; 
+  padding: 10px;
+  margin: 20px auto; 
   text-align: center; 
   border-radius: 2.5%;
+  border: 5px #F5F5DC solid;
 }
 
 .subway-seat p {

@@ -5,4 +5,12 @@ class Product < ApplicationRecord
     output_message += "Everday Value!!" if price >= 2.0
     output_message
   end
+
+  def tax
+    tax = (price * 0.09).truncate(2)
+  end
+
+  def total
+    total = (price + tax).truncate(2)
+  end
 end

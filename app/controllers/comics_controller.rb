@@ -12,7 +12,8 @@ class ComicsController < ApplicationController
     @comic1 = Product.new(
       name: params["comic_name"],
       price: params["comic_price"],
-      description: params["comic_description"]
+      description: params["comic_description"],
+      in_stock: params["in_stock"]
     )
     @comic1.save
     flash[:success] = "Created comic"
@@ -38,7 +39,8 @@ class ComicsController < ApplicationController
       name: params["comic_name"],
       price: params["comic_price"],
       image: params["comic_image"],
-      description: params["comic_description"]
+      description: params["comic_description"],
+      in_stock: params["in_stock"]
     )
     flash[:success] = "Updated comic"
     redirect_to "/comics/#{@comic.id}"
