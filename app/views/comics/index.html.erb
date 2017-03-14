@@ -4,7 +4,6 @@
 <% @comics.each_slice(3) do |three_comics| %>
   <% three_comics.each do |comic| %>
     <div class = "col-md-4 subway-seat">
-      <p><%= comic.id %>
       <p><a href = "/comics/<%= comic.id %>"><%= comic.name %></a></p>
       <p> <img src="<%=comic.image %>"></p>
       <p><%= comic.price %></p>
