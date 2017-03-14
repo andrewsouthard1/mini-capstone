@@ -1,12 +1,6 @@
 class ComicsController < ApplicationController
   def index
-    @home_page_comics = []
-    comic_db = Product.all
-    comic_num = 1
-    while comic_num < 7
-      @home_page_comics << comic_db.find_by(id: comic_num)
-      comic_num += 1
-    end
+    @comics = Product.all
     render 'index.html.erb'
   end
 
@@ -21,6 +15,7 @@ class ComicsController < ApplicationController
       description: params["comic_description"]
     )
     @comic1.save
+    flash[:success] = "Created comic"
     redirect_to "/comics/#{@comic1.id}"
   end
 
@@ -45,12 +40,14 @@ class ComicsController < ApplicationController
       image: params["comic_image"],
       description: params["comic_description"]
     )
+    flash[:success] = "Updated comic"
     redirect_to "/comics/#{@comic.id}"
   end
 
   def destroy
     @comic = Product.find(params[:id])
     @comic.destroy
+    flash[:danger] = "Deleted comic."
     redirect_to "/comics"
   end
 end

@@ -1,12 +1,15 @@
 <h1>Bay Ridge Comics</h1>
 
 <div class= "container">
-<% @home_page_comics.each do |comic| %>
-  <div class = "col-md-4 col-sm-6 subway-seat">
-  <p><a href = "/comics/<%= comic.id %>"><%= comic.name %></a></p>
-  <p> <img src="<%=comic.image %>"></p>
-  <p><%= comic.price %></p>
-  <p><%= comic.description %></p>
-  </div>
+<% @comics.each_slice(3) do |three_comics| %>
+  <% three_comics.each do |comic| %>
+    <div class = "col-md-4 subway-seat">
+      <p><%= comic.id %>
+      <p><a href = "/comics/<%= comic.id %>"><%= comic.name %></a></p>
+      <p> <img src="<%=comic.image %>"></p>
+      <p><%= comic.price %></p>
+      <p><%= comic.description %></p>
+    </div>
+  <% end %>
 <% end %>
 </div>

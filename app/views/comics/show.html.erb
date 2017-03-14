@@ -1,4 +1,7 @@
 <h1> Comic Info </h1>
-<%= @comic.name %>
-<%= @comic.price %>
-<%= @comic.description %>
+<div class = "subway-seat">
+<p><%= @comic.name %></p>
+<p> <img src="<%=@comic.image %>"></p>
+<p><%= @comic.price %></p>
+<p><%= @comic.description %></p>
+</div>
