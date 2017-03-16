@@ -1,6 +1,12 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Product.all
+    if params[:sort] == "price_low_to_high"
+      @comics = Product.all.order(:price)
+    elsif params[:sort] == "price_high_to_low"
+      @comics = Product.all.order(:price => :desc)
+    else
+      @comics = Product.all
+    end
     render 'index.html.erb'
   end
 
