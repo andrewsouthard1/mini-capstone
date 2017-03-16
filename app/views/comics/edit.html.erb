@@ -1,5 +1,10 @@
 <h1>Edit a Comic in the Database</h1>
 
+<div class = "center-image">
+  <img src="<%= @comic.image %>">
+</div>
+
+<div class = "form-subway-card">
 <%= form_tag "/comics/#{@comic.id}", method: :patch do%>
   <div>
     <label name= "comic_name">Name:</label>
@@ -20,15 +25,15 @@
     <label name="comic_description">Description:</label>
     <input type="text" name="comic_description" value="<%=@comic.description%>">
   </div>
-
-  <div>
+  <div class = "scan-bar">
     <label name="submit_button">
     <input type="submit" name="submit">
     </label>
-  </div>
 <% end %>
 
 <%= form_tag "/comics/#{@comic.id}", method: :delete do %>
   <input type="submit" name="delete" value="DELETE THIS COMIC">
 <% end %>
+</div>
+</div>
 
