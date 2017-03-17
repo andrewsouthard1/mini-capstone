@@ -4,9 +4,14 @@ class ComicsController < ApplicationController
       @comics = Product.all.order(:price)
     elsif params[:sort] == "price_high_to_low"
       @comics = Product.all.order(:price => :desc)
+    elsif params["search-term"]
+      @comics = Product.where("name LIKE ?", "%#{params['search-term']}%")
+    elsif params[:sort] == "discount_items"
+      @comics = Product.where("price < ?", 10)
     else
       @comics = Product.all
     end
+    # @comic_id = Product.find_by(params[])
     render 'index.html.erb'
   end
 
@@ -28,9 +33,12 @@ class ComicsController < ApplicationController
 
   def show
     comic_id = params[:id]
-    p "*******"
-    p comic_id
-    @comic = Product.find_by(id: comic_id)
+    if params[:sort] == "random_item"
+      shuffled_products = Product.all.shuffle
+      @comic = shuffled_products.first
+    else
+      @comic = Product.find_by(id: comic_id)
+    end
     render 'show.html.erb'
   end
 
